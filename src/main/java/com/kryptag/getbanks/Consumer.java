@@ -29,8 +29,8 @@ public class Consumer extends RMQConsumer{
     
     public void doWork(){
         Gson g = new Gson();
-        if (!super.getQueue().isEmpty()) {
-            CreditMessage cmsg = g.fromJson(super.getQueue().remove().toString(), CreditMessage.class);
+        if (!this.getQueue().isEmpty()) {
+            CreditMessage cmsg = g.fromJson(this.getQueue().remove().toString(), CreditMessage.class);
             RuleMessage rmsg = getBanks(cmsg);
         }
     }
